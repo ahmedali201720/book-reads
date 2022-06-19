@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function NavigationButton() {
   return (
-    <a href="#" class="search-link">
+    <a href="#" className="search-link">
       <FontAwesomeIcon icon="plus" />
     </a>
   );

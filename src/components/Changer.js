@@ -1,6 +1,6 @@
 function Changer() {
   return (
-    <div class="changer">
+    <div className="changer">
       <select name="shelf" id="shelf">
         <option value="none" disabled>
           Move to...

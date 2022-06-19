@@ -1,9 +1,9 @@
-import Shelf from "./shelf";
+import Shelf from "./Shelf";
 function SearchList() {
   return (
     <div className="content">
       <div className="container">
-        <Shelf />
+        <Shelf title={"All Books"} />
       </div>
     </div>
   );

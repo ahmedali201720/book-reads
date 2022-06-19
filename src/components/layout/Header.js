@@ -1,9 +1,10 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function Header() {
   return (
-    <header class="header" id="header">
-      <div class="container">
-        <h3 class="title">
-          <i class="fa fa-book-reader me-2"></i>
+    <header className="header" id="header">
+      <div className="container">
+        <h3 className="title">
+          <FontAwesomeIcon icon="fas fa-book-reader" className="me-2" />
           <span>My Reads</span>
         </h3>
       </div>

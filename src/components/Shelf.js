@@ -1,9 +1,9 @@
 import Book from "./Book";
-function Shelf() {
+function Shelf({ title }) {
   return (
     <div className="shelf-container">
       <div className="head">
-        <h4 className="title me-2">Currently Reading</h4>
+        <h4 className="title me-2">{title}</h4>
         <span>( 4 items )</span>
       </div>
       <div className="books-container">

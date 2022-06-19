@@ -1,19 +1,23 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function SearchHeader() {
   return (
-    <header class="search-header" id="searchHeader">
-      <div class="wrapper">
-        <a href="#" class="back-link">
-          <i class="fa fa-arrow-left"></i>
+    <header className="search-header" id="searchHeader">
+      <div className="wrapper">
+        <a href="#" className="back-link">
+          <FontAwesomeIcon icon="fa-solid fa-arrow-left" />
         </a>
-        <form action="GET" class="search-form">
-          <div class="input-wrapper">
-            <i class="icon fa fa-search"></i>
+        <form action="GET" className="search-form">
+          <div className="input-wrapper">
+            <FontAwesomeIcon
+              icon="fa-solid fa-magnifying-glass"
+              className="icon"
+            />
             <input
               type="text"
               name="key"
               id="key"
               placeholder="Search by title , author , or ISBN"
-              class="form-control"
+              className="form-control"
             />
           </div>
         </form>
