@@ -8,8 +8,9 @@ import SearchHeader from "./components/layout/SearchHeader";
 function App() {
   return (
     <div className="App">
-      <SearchHeader />
-      <SearchList />
+      <Header />
+      <Shelves />
+      <NavigationButton />
     </div>
   );
 }
