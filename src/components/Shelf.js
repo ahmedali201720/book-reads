@@ -1,5 +1,5 @@
 import Book from "./Book";
-function Shelf({ title }) {
+function Shelf({ title, booksList }) {
   return (
     <div className="shelf-container">
       <div className="head">
@@ -8,9 +8,11 @@ function Shelf({ title }) {
       </div>
       <div className="books-container">
         <div className="row g-5">
-          <div className="col-xl-2 col-lg-3 col-sm-6">
-            <Book />
-          </div>
+          {booksList.map(() => (
+            <div className="col-xl-2 col-lg-3 col-sm-6">
+              <Book />
+            </div>
+          ))}
         </div>
       </div>
     </div>
