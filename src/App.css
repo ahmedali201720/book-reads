@@ -100,7 +100,7 @@ body {
   background-color: #2e7c31;
   color: #ffffff;
   cursor: pointer;
-  background-image: url(../public/img/arrow-down.svg);
+  background-image: url(./img/arrow-down.svg);
   background-size: 30px 30px;
   background-repeat: no-repeat;
   background-position: center;

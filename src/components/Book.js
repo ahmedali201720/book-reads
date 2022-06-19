@@ -1,16 +1,18 @@
-import book1 from "../../public/img/book1.png";
+import book1 from "../img/content.jpg";
 import Changer from "./Changer";
 function Book() {
   return (
-    <div class="book-card">
-      <div class="image">
+    <div className="book-card">
+      <div className="image">
         <img src={book1} alt="Book" />
         <Changer />
       </div>
-      <div class="meta">
-        <p class="title">To Kill a Mockingbird</p>
-        <small class="writer">Harper Lee</small>
+      <div className="meta">
+        <p className="title">To Kill a Mockingbird</p>
+        <small className="writer">Harper Lee</small>
       </div>
     </div>
   );
 }
+
+export default Book;
