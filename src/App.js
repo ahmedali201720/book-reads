@@ -8,14 +8,14 @@ import { useState, useEffect } from "react";
 import * as BooksAPI from "./utils/BooksAPI";
 
 function App() {
-  const [books, setBooksList] = useState([]);
-  const getBooksList = async () => {
+  const [books, setBooks] = useState([]);
+  const getBooks = async () => {
     const result = await BooksAPI.getAll();
-    setBooksList(result);
+    setBooks(result);
   };
   useEffect(() => {
-    getBooksList();
-  });
+    getBooks();
+  }, []);
   return (
     <div className="App">
       <Header />

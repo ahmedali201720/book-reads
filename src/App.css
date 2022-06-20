@@ -88,6 +88,11 @@ body {
 
 .book-card .meta .writer {
   color: #8a8a8a;
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .book-card .changer {
