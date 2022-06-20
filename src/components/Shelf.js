@@ -1,5 +1,5 @@
 import Book from "./Book";
-function Shelf({ title, books }) {
+function Shelf({ title, books, updateTargetBookShelf }) {
   return (
     <div className="shelf-container">
       <div className="head">
@@ -8,11 +8,20 @@ function Shelf({ title, books }) {
       </div>
       <div className="books-container">
         <div className="row g-5">
-          {books.map((book) => (
-            <div className="col-xl-2 col-lg-3 col-sm-6" key={book.id}>
-              <Book book={book} />
+          {books.length > 0 ? (
+            books.map((book) => (
+              <div className="col-xl-2 col-lg-3 col-sm-6" key={book.id}>
+                <Book
+                  book={book}
+                  updateTargetBookShelf={updateTargetBookShelf}
+                />
+              </div>
+            ))
+          ) : (
+            <div className="alert alert-danger text-center">
+              There is no books to display in this shelf
             </div>
-          ))}
+          )}
         </div>
       </div>
     </div>

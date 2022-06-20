@@ -1,11 +1,16 @@
-function Changer() {
+function Changer({ book, updateTargetBookShelf }) {
   return (
     <div className="changer">
-      <select name="shelf" id="shelf">
+      <select
+        name="shelf"
+        id="shelf"
+        defaultValue={book.shelf}
+        onChange={(event) => updateTargetBookShelf(book, event.target.value)}
+      >
         <option value="none" disabled>
           Move to...
         </option>
-        <option value="currentlyReading">Currently Reading</option>
+        q<option value="currentlyReading">Currently Reading</option>
         <option value="wantToRead">Want to Read</option>
         <option value="read">Read</option>
         <option value="none">None</option>

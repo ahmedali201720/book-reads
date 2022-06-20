@@ -8,7 +8,20 @@ import { useState, useEffect } from "react";
 import * as BooksAPI from "./utils/BooksAPI";
 
 function App() {
+  const [showSearchPage, setSearchPageState] = useState(false);
   const [books, setBooks] = useState([]);
+
+  const updateTargetBookShelf = (targetBook, shelf) => {
+    const newBooks = books.map((book) => {
+      if (book.id === targetBook.id) {
+        book.shelf = shelf;
+        return book;
+      }
+      return book;
+    });
+    setBooks(newBooks);
+  };
+
   const getBooks = async () => {
     const result = await BooksAPI.getAll();
     setBooks(result);
@@ -19,7 +32,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Shelves books={books} />
+      <Shelves books={books} updateTargetBookShelf={updateTargetBookShelf} />
       <NavigationButton />
     </div>
   );

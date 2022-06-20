@@ -1,11 +1,10 @@
-import book1 from "../img/content.jpg";
 import Changer from "./Changer";
-function Book({ book }) {
+function Book({ book, updateTargetBookShelf }) {
   return (
     <div className="book-card">
       <div className="image">
         <img src={book.imageLinks.thumbnail} alt="Book" />
-        <Changer />
+        <Changer book={book} updateTargetBookShelf={updateTargetBookShelf} />
       </div>
       <div className="meta">
         <p className="title">{book.title}</p>

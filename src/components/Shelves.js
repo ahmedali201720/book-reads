@@ -1,7 +1,7 @@
 import Shelf from "./Shelf";
 import { useState, useEffect } from "react";
 
-function Shelves({ books }) {
+function Shelves({ books, updateTargetBookShelf }) {
   console.log(books);
   const currentlyReadingBooks = books.filter((b) => {
     return b.shelf === "currentlyReading";
@@ -16,9 +16,21 @@ function Shelves({ books }) {
   return (
     <div className="content px-sm-0 px-4">
       <div className="container">
-        <Shelf title="Currently Reading" books={currentlyReadingBooks} />
-        <Shelf title="Want To Read" books={wantToReadBooks} />
-        <Shelf title="Read" books={readBooks} />
+        <Shelf
+          title="Currently Reading"
+          books={currentlyReadingBooks}
+          updateTargetBookShelf={updateTargetBookShelf}
+        />
+        <Shelf
+          title="Want To Read"
+          books={wantToReadBooks}
+          updateTargetBookShelf={updateTargetBookShelf}
+        />
+        <Shelf
+          title="Read"
+          books={readBooks}
+          updateTargetBookShelf={updateTargetBookShelf}
+        />
       </div>
     </div>
   );
