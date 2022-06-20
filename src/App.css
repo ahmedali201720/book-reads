@@ -71,7 +71,7 @@ body {
 .book-card .image img {
   display: inline-block;
   width: 100%;
-  height: auto;
+  height: 300px;
   -o-object-fit: cover;
   object-fit: cover;
   -o-object-position: center;
