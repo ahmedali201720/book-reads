@@ -1,14 +1,13 @@
 import "./App.css";
 import Header from "./components/layout/Header";
 import Shelves from "./components/Shelves";
-import NavigationButton from "./components/NavigationButton";
 import SearchList from "./components/SearchList";
-import SearchHeader from "./components/layout/SearchHeader";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 import * as BooksAPI from "./utils/BooksAPI";
 
 function App() {
-  const [showSearchPage, setSearchPageState] = useState(false);
+  const [showSearchPage, setSearchPageShow] = useState(false);
   const [books, setBooks] = useState([]);
 
   const updateTargetBookShelf = (targetBook, shelf) => {
@@ -30,11 +29,26 @@ function App() {
   useEffect(() => {
     getBooks();
   }, []);
+
   return (
     <div className="App">
-      <Header />
-      <Shelves books={books} updateTargetBookShelf={updateTargetBookShelf} />
-      <NavigationButton />
+      {showSearchPage ? (
+        <SearchList />
+      ) : (
+        <div className="wrapper">
+          <Header />
+          <Shelves
+            books={books}
+            updateTargetBookShelf={updateTargetBookShelf}
+          />
+          <a
+            onClick={() => setSearchPageShow(!showSearchPage)}
+            className="search-link"
+          >
+            <FontAwesomeIcon icon="plus" />
+          </a>
+        </div>
+      )}
     </div>
   );
 }
