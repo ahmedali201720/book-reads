@@ -9,6 +9,8 @@ import * as BooksAPI from "./utils/BooksAPI";
 function App() {
   const [showSearchPage, setSearchPageShow] = useState(false);
   const [books, setBooks] = useState([]);
+  const [searchResult, setSearchResult] = useState([]);
+  const [query, setQuery] = useState("");
 
   const updateTargetBookShelf = (targetBook, shelf) => {
     const newBooks = books.map((book) => {
@@ -29,11 +31,29 @@ function App() {
   useEffect(() => {
     getBooks();
   }, []);
-
+  useEffect(() => {
+    if (query) {
+      BooksAPI.search(query).then((data) => {
+        if (data.error) {
+          setSearchResult([]);
+        } else {
+          console.log(data);
+          setSearchResult(data);
+        }
+      });
+    } else {
+      setSearchResult([]);
+    }
+  }, [query]);
   return (
     <div className="App">
       {showSearchPage ? (
-        <SearchList />
+        <SearchList
+          hideSearchPage={() => setSearchPageShow(!showSearchPage)}
+          setQuery={(value) => setQuery(value)}
+          books={searchResult}
+          updateTargetBookShelf={updateTargetBookShelf}
+        />
       ) : (
         <div className="wrapper">
           <Header />
