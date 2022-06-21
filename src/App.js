@@ -37,7 +37,6 @@ function App() {
         if (data.error) {
           setSearchResult([]);
         } else {
-          console.log(data);
           setSearchResult(data);
         }
       });
