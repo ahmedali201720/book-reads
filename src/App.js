@@ -15,6 +15,7 @@ function App() {
     const newBooks = books.map((book) => {
       if (book.id === targetBook.id) {
         book.shelf = shelf;
+        BooksAPI.update(targetBook, shelf);
         return book;
       }
       return book;
