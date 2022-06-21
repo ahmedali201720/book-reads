@@ -14,16 +14,30 @@ function App() {
 
   const updateTargetBookShelf = (targetBook, shelf) => {
     if (showSearchPage) {
-      const newBooks = searchResult.map((book) => {
+      const tempBooks = books;
+      searchResult.map((book) => {
         if (book.id === targetBook.id) {
           book.shelf = shelf;
           BooksAPI.update(targetBook, shelf);
-          books.push(book);
+          const booksIDs = [];
+          books.forEach((b, index) => {
+            booksIDs.push(b.id);
+          });
+          if (booksIDs.includes(book.id)) {
+            for (let i = 0; i < tempBooks.length; i++) {
+              if (book.id === tempBooks[i].id) {
+                tempBooks[i].shelf = shelf;
+                break;
+              }
+            }
+          } else {
+            tempBooks.push(book);
+          }
           return book;
         }
         return book;
       });
-      setBooks(books);
+      setBooks(tempBooks);
     } else {
       const newBooks = books.map((book) => {
         if (book.id === targetBook.id) {
@@ -50,6 +64,14 @@ function App() {
         if (data.error) {
           setSearchResult([]);
         } else {
+          data.forEach((book) => {
+            books.forEach((b) => {
+              if (book.id === b.id) {
+                book.shelf = b.shelf;
+                console.log(book);
+              }
+            });
+          });
           setSearchResult(data);
         }
       });

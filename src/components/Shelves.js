@@ -1,5 +1,4 @@
 import Shelf from "./Shelf";
-import { useState, useEffect } from "react";
 
 function Shelves({ books, updateTargetBookShelf }) {
   const currentlyReadingBooks = books.filter((b) => {
