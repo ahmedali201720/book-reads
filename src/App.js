@@ -13,15 +13,28 @@ function App() {
   const [query, setQuery] = useState("");
 
   const updateTargetBookShelf = (targetBook, shelf) => {
-    const newBooks = books.map((book) => {
-      if (book.id === targetBook.id) {
-        book.shelf = shelf;
-        BooksAPI.update(targetBook, shelf);
+    if (showSearchPage) {
+      const newBooks = searchResult.map((book) => {
+        if (book.id === targetBook.id) {
+          book.shelf = shelf;
+          BooksAPI.update(targetBook, shelf);
+          books.push(book);
+          return book;
+        }
         return book;
-      }
-      return book;
-    });
-    setBooks(newBooks);
+      });
+      setBooks(books);
+    } else {
+      const newBooks = books.map((book) => {
+        if (book.id === targetBook.id) {
+          book.shelf = shelf;
+          BooksAPI.update(targetBook, shelf);
+          return book;
+        }
+        return book;
+      });
+      setBooks(newBooks);
+    }
   };
 
   const getBooks = async () => {

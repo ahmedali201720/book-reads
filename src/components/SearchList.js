@@ -28,8 +28,10 @@ function SearchList({
                     </div>
                   ))
                 ) : (
-                  <div className="alert alert-danger text-center">
-                    There is no books to display in this shelf
+                  <div className="px-4">
+                    <div className="alert alert-info text-center py-4">
+                      Search for more books !!
+                    </div>
                   </div>
                 )}
               </div>

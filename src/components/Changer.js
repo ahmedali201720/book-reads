@@ -4,7 +4,7 @@ function Changer({ book, updateTargetBookShelf }) {
       <select
         name="shelf"
         id="shelf"
-        defaultValue={book.shelf}
+        defaultValue={book.shelf ? book.shelf : "none"}
         onChange={(event) => updateTargetBookShelf(book, event.target.value)}
       >
         <option value="none" disabled>

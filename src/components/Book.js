@@ -7,7 +7,6 @@ function Book({ book, updateTargetBookShelf }) {
         <Changer book={book} updateTargetBookShelf={updateTargetBookShelf} />
       </div>
       <div className="meta">
-        {console.log(book)}
         <p className="title">{book?.title}</p>
         <small className="writer">
           {book.authors
