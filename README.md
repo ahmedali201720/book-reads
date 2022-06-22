@@ -20,8 +20,10 @@
 
 # How to run the project ?
 
-1. After cloning the project , Run ### `npm install` .
-2. Run ### `npm start`.
+1. After cloning the project , Run
+   ### `npm install` .
+2. Run
+   ### `npm start`.
 
 # More Information about React Applications
 
