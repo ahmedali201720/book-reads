@@ -1,14 +1,14 @@
 import Book from "./Book";
 import SearchHeader from "../components/layout/SearchHeader";
 function SearchList({
-  hideSearchPage,
+  setSearchState,
   setQuery,
   books,
   updateTargetBookShelf,
 }) {
   return (
     <div className="page-wrapper">
-      <SearchHeader hideSearchPage={hideSearchPage} setQuery={setQuery} />
+      <SearchHeader setSearchState={setSearchState} setQuery={setQuery} />
       <div className="content">
         <div className="container">
           <div className="shelf-container">

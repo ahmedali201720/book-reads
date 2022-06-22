@@ -1,11 +1,20 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-function SearchHeader({ hideSearchPage, setQuery }) {
+import { Link } from "react-router-dom";
+function SearchHeader({ setSearchState, setQuery }) {
   return (
     <header className="search-header" id="searchHeader">
       <div className="wrapper">
-        <a href="#" onClick={() => hideSearchPage()} className="back-link">
-          <FontAwesomeIcon icon="fa-solid fa-arrow-left" />
-        </a>
+        <Link to="/">
+          <button
+            className="back-link"
+            onClick={() => {
+              setSearchState(false);
+            }}
+          >
+            <FontAwesomeIcon icon="fa-solid fa-arrow-left" />
+          </button>
+        </Link>
+
         <form action="GET" className="search-form">
           <div className="input-wrapper">
             <FontAwesomeIcon

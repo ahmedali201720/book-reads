@@ -1,4 +1,29 @@
-# Getting Started with Create React App
+# About the project
+
+- MyReads Project has been created with **React v.18** and simulates a library which has three main shelves
+
+1. Currently Reading Books.
+2. Want To Read Books.
+3. Read Books
+
+- Each book has a control that lets you select the shelf for that book
+- The main page also has a link to /search, a search page that allows you to find books to add to your library.
+
+- A search page to search for books and adding it to the library by selecting its state.
+
+# Project Dependencies
+
+1. React version 18.1.0
+2. Bootstrap 5
+3. Font Awesome Library
+4. react-router-dom
+
+# How to run the project ?
+
+1. After cloning the project , Run ### `npm install` .
+2. Run ### `npm start`.
+
+# More Information about React Applications
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

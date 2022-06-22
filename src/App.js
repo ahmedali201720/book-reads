@@ -4,6 +4,7 @@ import Shelves from "./components/Shelves";
 import SearchList from "./components/SearchList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import * as BooksAPI from "./utils/BooksAPI";
 
 function App() {
@@ -68,7 +69,6 @@ function App() {
             books.forEach((b) => {
               if (book.id === b.id) {
                 book.shelf = b.shelf;
-                console.log(book);
               }
             });
           });
@@ -81,28 +81,47 @@ function App() {
   }, [query]);
   return (
     <div className="App">
-      {showSearchPage ? (
-        <SearchList
-          hideSearchPage={() => setSearchPageShow(!showSearchPage)}
-          setQuery={(value) => setQuery(value)}
-          books={searchResult}
-          updateTargetBookShelf={updateTargetBookShelf}
-        />
-      ) : (
-        <div className="wrapper">
-          <Header />
-          <Shelves
-            books={books}
-            updateTargetBookShelf={updateTargetBookShelf}
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/search"
+            element={
+              <SearchList
+                setSearchState={() => {
+                  setSearchPageShow(!showSearchPage);
+                  setSearchResult([]);
+                }}
+                setQuery={(value) => setQuery(value)}
+                books={searchResult}
+                updateTargetBookShelf={updateTargetBookShelf}
+              />
+            }
           />
-          <a
-            onClick={() => setSearchPageShow(!showSearchPage)}
-            className="search-link"
-          >
-            <FontAwesomeIcon icon="plus" />
-          </a>
-        </div>
-      )}
+
+          <Route
+            path="/"
+            element={
+              <div className="wrapper">
+                <Header />
+                <Shelves
+                  books={books}
+                  updateTargetBookShelf={updateTargetBookShelf}
+                />
+                <Link to="/search">
+                  <button
+                    className="search-link"
+                    onClick={() => {
+                      setSearchPageShow(!showSearchPage);
+                    }}
+                  >
+                    <FontAwesomeIcon icon="plus" />
+                  </button>
+                </Link>
+              </div>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
