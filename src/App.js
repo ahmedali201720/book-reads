@@ -84,21 +84,6 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route
-            path="/search"
-            element={
-              <SearchList
-                setSearchState={() => {
-                  setSearchPageShow(!showSearchPage);
-                  setSearchResult([]);
-                }}
-                setQuery={(value) => setQuery(value)}
-                books={searchResult}
-                updateTargetBookShelf={updateTargetBookShelf}
-              />
-            }
-          />
-
-          <Route
             path="/"
             element={
               <div className="wrapper">
